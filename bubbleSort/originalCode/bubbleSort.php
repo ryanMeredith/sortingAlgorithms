@@ -1,25 +1,18 @@
 <?php
 
-$unSortedArray = array (10,4,6,4,3,8,6,2,1,9,6);
-echo "unsorted:  ";
-foreach ($unSortedArray as  $value) {
-	echo  $value . ", ";
-}
-
-    $arraySize = count($unSortedArray);
+function executeBubbleSort($sortArray)
+{
+    $arraySize = count($sortArray);
     for ($i=0; $i<$arraySize; $i++) {
         for ($j=0; $j<$arraySize-1-$i; $j++) {
-            if ($unSortedArray[$j+1] < $unSortedArray[$j]) {
-                $oldValue = $unSortedArray[$j];
-				$unSortedArray[$j] = $unSortedArray[$j+1];
-				$unSortedArray[$j+1] = $oldValue;
+            if ($sortArray[$j+1] < $sortArray[$j]) {
+                $oldValue = $sortArray[$j];
+				$sortArray[$j] = $sortArray[$j+1];
+				$sortArray[$j+1] = $oldValue;
             }
         }
     }
-	echo "<br/><br/>";
-	echo "Sorted:  ";
-    foreach ($unSortedArray as  $value) {
-	echo $value . ", ";
+	return $sortArray;
 }
 
 ?>
