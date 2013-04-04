@@ -1,6 +1,6 @@
 <?php
 
-require_once "bubbleSort.php";
+require_once dirname(dirname(dirname(dirname(__FILE__)))). "/src/bubbleSort/originalCode/bubbleSort.php";
 
 class bubbleSortTest extends PHPUnit_Framework_TestCase
 {
