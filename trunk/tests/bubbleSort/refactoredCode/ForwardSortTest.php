@@ -7,7 +7,7 @@ class ForwardSortTest extends PHPUnit_Framework_TestCase
 
 	public function setup()
 	{
-		$this->forwardSort = new ForwardSort();
+		$this->forwardSort = new bubbleSort\refactoredCode\ForwardSort();
 	}
     public function testSimpleSort()
 	{
