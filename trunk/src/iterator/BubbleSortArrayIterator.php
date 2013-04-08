@@ -6,7 +6,7 @@ class BubbleSortArrayIterator extends ArrayIterator
 	
 	public function __construct(\arrayContainer\ArrayContainer $arrayContainer){
 		parent::__construct($arrayContainer);
-		$this->runDown = count($this->iArray);
+		$this->runDown = count($this->arrayContainer->getArray())-1;
 	}
 	
 	public function isDone()
