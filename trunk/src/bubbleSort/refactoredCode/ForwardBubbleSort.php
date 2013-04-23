@@ -1,21 +1,22 @@
-<?php namespace bubbleSort\refactoredCode;
+<?php 
+
+namespace bubbleSort\refactoredCode;
 
 class ForwardBubbleSort extends BubbleSort
 {
 
-	public function executeSort(\arraycontainer\ArrayContainer $arrayContainer)
+	public function executeSort(\sortContainers\Container $container)
 	{
-		$bubbleSortIterator = new \iterator\BubbleSortArrayIterator($arrayContainer);
-		while (!$bubbleSortIterator->isDone()){
-			$currentItem = $bubbleSortIterator->currentItem();
-			$nextItem = $bubbleSortIterator -> getNextItem();
-			if($this->needsSwapping($currentItem, $nextItem)){
-				$bubbleSortIterator->arrayContainer->changeArrayValue($bubbleSortIterator-> getNextPosition(),$currentItem);
-				$bubbleSortIterator->arrayContainer->changeArrayValue($bubbleSortIterator-> getCurrentPosition(), $nextItem);
+		$iterator = new \iterator\BubbleSortArrayIterator($container);
+		while (!$iterator->isDone()){
+			$currentItem = $iterator->currentItem();
+			$nextItem = $iterator -> getNextItem();
+			if($iterator->container->isGreaterThan($currentItem, $nextItem)){
+				$iterator->container->swapValues($iterator-> getCurrentPosition(), $iterator-> getNextPosition());	
 			}
-			$bubbleSortIterator->nextPosition();
+			$iterator->nextPosition();
 		}
-		return $bubbleSortIterator->arrayContainer->getArray();
+		return $iterator->container->getSort();
 	}
 	
 }
