@@ -2,13 +2,13 @@
 
 class ArrayIterator implements Iterator
 {
-	protected $currentPosition ;
-	public $arrayContainer; 
+	public $container;
+	protected $currentPosition ; 
 	protected $arraySize;
 	
-	public function __construct(\arrayContainer\ArrayContainer $arrayContainer){
-		$this->arrayContainer = $arrayContainer;
-		$this->arraySize = count($this->arrayContainer->getArray());
+	public function __construct(\sortContainers\ArrayContainer $arrayContainer){
+		$this->container = $arrayContainer;
+		$this->arraySize = count($this->container->getSort());
 		$this->currentPosition = $this->first();
 	}
 	
@@ -33,7 +33,7 @@ class ArrayIterator implements Iterator
 	
 	public function currentItem()
 	{
-		$array = $this->arrayContainer->getArray();
+		$array = $this->container->getSort();
 		return $array[$this->currentPosition];
 	}
 	
@@ -49,7 +49,7 @@ class ArrayIterator implements Iterator
 	}
 	
 	public function getNextItem(){
-		$array = $this->arrayContainer->getArray();
+		$array = $this->container->getSort();
 		return $array[$this->getNextPosition()];
 	}
 }
