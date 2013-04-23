@@ -6,8 +6,8 @@ class ReverseArrayIterator implements Iterator
 	protected $iArray; 
 	protected $arraySize;
 	
-	public function __construct(\arrayContainer\ArrayContainer $arrayContainer){
-		$this->iArray = $arrayContainer->getArray();
+	public function __construct(\sortContainers\ArrayContainer $arrayContainer){
+		$this->iArray = $arrayContainer->getSort();
 		$this->arraySize = count($this->iArray);
 		$this->currentPosition = $this->first();
 	}

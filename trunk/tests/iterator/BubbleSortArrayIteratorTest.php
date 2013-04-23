@@ -17,8 +17,8 @@ class BubbleSortIteratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	protected function getArrayContainer($array){
-		$arrayContainer = new arrayContainer\ArrayContainer();
-		$arrayContainer->setArray($array);
+		$arrayContainer = new sortContainers\ArrayContainer();
+		$arrayContainer->setSort($array);
 		return $arrayContainer;
 	}
 

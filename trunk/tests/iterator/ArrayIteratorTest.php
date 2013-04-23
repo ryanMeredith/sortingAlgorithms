@@ -30,11 +30,11 @@ class ArrayIteratorTest extends PHPUnit_Framework_TestCase
 		$arrayContainer = $this->getArrayContainer(array(5,6,7,8,9));
 		$arrayIterator = new iterator\ArrayIterator($arrayContainer);
 		while (!$arrayIterator->isDone()){
-			$array = $arrayIterator->arrayContainer->addToStartofArray(1);
+			$array = $arrayIterator->container->addToStart(1);
 			$result[] = $arrayIterator->currentItem();
 			$arrayIterator->nextPosition();
 		}
-		$this->assertEquals(array(1,1,1,1,1,5,6,7,8,9),$arrayIterator->arrayContainer->getArray());
+		$this->assertEquals(array(1,1,1,1,1,5,6,7,8,9),$arrayIterator->container->getSort());
 	}
 	
 	public function testAddToEndOfArray(){
@@ -43,9 +43,9 @@ class ArrayIteratorTest extends PHPUnit_Framework_TestCase
 		while (!$arrayIterator->isDone()){
 			$result[] = $arrayIterator->currentItem();
 			$arrayIterator->nextPosition();
-			$array = $arrayIterator->arrayContainer->addToArray(1);
+			$array = $arrayIterator->container->addToEnd(1);
 		}
-		$this->assertEquals(array(5,6,7,8,9,1,1,1,1,1),$arrayIterator->arrayContainer->getArray());
+		$this->assertEquals(array(5,6,7,8,9,1,1,1,1,1),$arrayIterator->container->getSort());
 	}
 	
 	public function testChangeArray(){
@@ -54,14 +54,14 @@ class ArrayIteratorTest extends PHPUnit_Framework_TestCase
 		while (!$arrayIterator->isDone()){
 			$result[] = $arrayIterator->currentItem();
 			$arrayIterator->nextPosition();
-			$array = $arrayIterator->arrayContainer->changeArrayValue(1,2);
+			$array = $arrayIterator->container->changeValue(1,2);
 		}
-		$this->assertEquals(array(5,2,7,8,9),$arrayIterator->arrayContainer->getArray());
+		$this->assertEquals(array(5,2,7,8,9),$arrayIterator->container->getSort());
 	}
 	
 	protected function getArrayContainer($array){
-		$arrayContainer = new arrayContainer\ArrayContainer();
-		$arrayContainer->setArray($array);
+		$arrayContainer = new sortContainers\ArrayContainer();
+		$arrayContainer->setSort($array);
 		return $arrayContainer;
 	}
 	 
