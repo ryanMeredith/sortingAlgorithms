@@ -1,20 +1,21 @@
-<?php namespace iterator;
+<?php 
+namespace iterator;
 
 class BubbleSortArrayIterator extends ArrayIterator
 {
 	protected $runDown;
 	
-	public function __construct(\arrayContainer\ArrayContainer $arrayContainer){
+	public function __construct(\sortContainers\ArrayContainer $arrayContainer){
 		parent::__construct($arrayContainer);
-		$this->runDown = count($this->arrayContainer->getArray())-1;
+		$this->runDown = count($this->container->getSort())-1;
 	}
 	
 	public function isDone()
 	{
-		$isDone = FALSE;	
+		$isDone = false;	
 		if($this->currentPosition >= $this->runDown){
 			if($this->isSorted()){
-				$isDone = TRUE;
+				$isDone = true;
 			}else{
 				$this->SortAgain();
 			}		
@@ -28,9 +29,9 @@ class BubbleSortArrayIterator extends ArrayIterator
 	}
 	
 	protected function isSorted(){
-		$sorted = FALSE;
+		$sorted = false;
 		if($this->runDown == 0){
-			$sorted = TRUE;
+			$sorted = true;
 		}
 		return $sorted;
 	}
